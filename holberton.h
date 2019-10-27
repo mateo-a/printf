@@ -14,7 +14,11 @@ typedef struct vaargs
 	int (*f)();
 } vargs;
 int _putchar(char c);
+void copyto_buffer(char *dest, char letter, int *pos);
 int (*looktype(char s))(va_list args, char *dest, int *pos);
 int save_string(va_list args, char *dest, int *pos);
 int save_char(va_list args, char *dest, int *pos);
+int save_reverse(va_list args, char *dest, int *pos);
+int save_decimal (va_list args, char *dest, int *pos);
+void convert_numbers(char *dest, unsigned int number, int *pos);
 #endif

@@ -10,6 +10,8 @@ int (*looktype(char s))(va_list args, char *dest, int *pos)
 	vargs calls[] = {
 		{'s', save_string},
 		{'c', save_char},
+		{'r', save_reverse},
+		{'d', save_decimal},
 		{'\0', NULL}
 	};
 	while (calls[i].typef != '\0')
