@@ -39,23 +39,20 @@ int _printf(const char * const format, ...)
 		if (format[i] != '%')
 			copyto_buffer(dest, format[i], pos);
 		else if (format[i] == '%' && format[i + 1] == '\0')
-		{
 			exit(98);
-		}
 		else if (format[i] == '%' && format[i + 1] != '\0')
 		{
-				(b).f = looktype(format[i + 1]);
-				if ((b).f != NULL)
-				{
-					(b).f(args, dest, pos);
-					i++;
-				}
-				else
-					copyto_buffer(dest, format[i], pos);
+			(b).f = looktype(format[i + 1]);
+			if ((b).f != NULL)
+			{
+				(b).f(args, dest, pos);
+				i++;
 			}
+			else
+				copyto_buffer(dest, format[i], pos);
+		}
 		i++;
 	}
-	length = i + 1;
 	if (*pos != 1024)
 	{
 		write(1, dest, *pos);
