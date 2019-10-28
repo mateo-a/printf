@@ -1,29 +1,13 @@
 #include "holberton.h"
 /**
- * copyto_buffer - dinamically creates a buffer
- * @dest: Destiny of buffer
- * @letter: letter to copy into destiny
- * @pos: To determine the position don't excede 1024
- */
-void copyto_buffer(char *dest, char letter, int *pos)
-{
-	dest[*pos] = letter;
-	*pos = *pos + 1;
-	if (*pos == 1024)
-	{
-		write(1, dest, *pos);
-		*pos = 0;
-	}
-}
-/**
  * _printf - print anything with a format
  * @format: address of format to print
  * @...: variadic arguments to print with format
  * Return: Length of string printed
  */
-int _printf(const char * const format, ...)
+int _printf(const char *format, ...)
 {
-	int i = 0, tmpa = 0, length = 0;
+	int i = 0, tmpa = 0, len = -1;
 	va_list args;
 	vargs b;
 	int *pos;
@@ -36,10 +20,11 @@ int _printf(const char * const format, ...)
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
+		len = 0;
 		if (format[i] != '%')
 			copyto_buffer(dest, format[i], pos);
 		else if (format[i] == '%' && format[i + 1] == '\0')
-			exit(98);
+			return (-1);
 		else if (format[i] == '%' && format[i + 1] != '\0')
 		{
 			(b).f = looktype(format[i + 1]);
@@ -59,5 +44,5 @@ int _printf(const char * const format, ...)
 		free(dest);
 	}
 	va_end(args);
-	return (length);
+	return (*pos);
 }
