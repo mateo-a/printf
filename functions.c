@@ -1,5 +1,21 @@
 #include "holberton.h"
 /**
+ * copyto_buffer - dinamically creates a buffer
+ * @dest: Destiny of buffer
+ * @letter: letter to copy into destiny
+ * @pos: To determine the position don't excede 1024
+ */
+void copyto_buffer(char *dest, char letter, int *pos)
+{
+	dest[*pos] = letter;
+	*pos = *pos + 1;
+	if (*pos == 1024)
+	{
+		write(1, dest, *pos);
+		*pos = 0;
+	}
+}
+/**
  * save_string - save a string into the buffer
  * @args: the list of arguments received
  * @dest: The buffer
@@ -9,16 +25,17 @@
 int save_string(va_list args, char *dest, int *pos)
 {
 	int i = 0;
+	int j = *pos;
 	char *str = va_arg(args, char*);
 
 	if (str == NULL)
-		str = "(nil)";
+		str = "(null)";
 	while (str[i] != '\0')
 	{
 		copyto_buffer(dest, str[i], pos);
 		i++;
 	}
-	return (i);
+	return (j);
 }
 /**
  * save_char - save a char into the buffer
@@ -30,9 +47,10 @@ int save_string(va_list args, char *dest, int *pos)
 int save_char(va_list args, char *dest, int *pos)
 {
 	char c = va_arg(args, int);
+	int j = *pos;
 
 	copyto_buffer(dest, c, pos);
-	return (1);
+	return (j);
 }
 /**
  * save_reverse - save a reverse string into the buffer
@@ -46,6 +64,7 @@ int save_reverse(va_list args, char *dest, int *pos)
 	int i = 0, si = 0, j = 0;
 	char *str = va_arg(args, char*);
 	char letter;
+	int p = *pos;
 
 	if (str == NULL)
 		str = "(nil)";
@@ -68,43 +87,18 @@ int save_reverse(va_list args, char *dest, int *pos)
 		copyto_buffer(dest, str[j], pos);
 		j++;
 	}
-	return (j);
+	return (p);
 }
 /**
- * convert_numbers - convert a number into char and copy into buffer
- * @dest: buffer destiny
- * @number: number to convert a char
- * @pos: Last position of buffer
- */
-void convert_numbers(char *dest, unsigned int number, int *pos)
-{
-	long int a;
-	char cnumber;
-
-	a = (long) number;
-	if (a / 10 != 0)
-	{
-		convert_numbers(dest, number / 10, pos);
-	}
-	cnumber = (a % 10) + '0';
-	copyto_buffer(dest, cnumber, pos);
-}
-
-/**
- * save_decimal - validate a number
+ * save_percent - save a percent into buffer
  * @args: list of arguments to validate
  * @dest: buffer destiny
  * @pos: Last position of buffer
  * Return: Actual length
  */
-int save_decimal(va_list args, char *dest, int *pos)
+int save_percent(va_list args, char *dest, int *pos)
 {
-	int number = va_arg(args, int);
-
-	if (number < 0)
-	{
-		copyto_buffer(dest, '-', pos);
-		number = number * -1;
-	}
-	convert_numbers(dest, number, pos);
+	(void)(args);
+	copyto_buffer(dest, '%', pos);
+	return (-1);
 }
