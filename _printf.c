@@ -7,7 +7,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int i = 0, tmpa = 0, len = -1;
+	int i = 0, tmpa = 0;
 	va_list args;
 	vargs b;
 	int *pos;
@@ -20,7 +20,6 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
-		len = 0;
 		if (format[i] != '%')
 			copyto_buffer(dest, format[i], pos);
 		else if (format[i] == '%' && format[i + 1] == '\0')
