@@ -95,6 +95,8 @@ int save_binary(va_list args, char *dest, int *pos)
 	}
 	len = _base(num, 2);
 	str = malloc(len + 1);
+	if (str == NULL)
+		str = "(null)";
 	for (i = 0; num > 0; i++)
 	{
 		if (num % 2 == 0)
@@ -111,5 +113,6 @@ int save_binary(va_list args, char *dest, int *pos)
 		copyto_buffer(dest, str[i], pos);
 		i++;
 	}
+	free (str);
 	return (i);
 }
