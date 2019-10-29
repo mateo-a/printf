@@ -36,5 +36,16 @@ int save_decimal(va_list args, char *dest, int *pos)
 		number = number * -1;
 	}
 	convert_numbers(dest, number, pos);
-	return (0);
+	return (strlen_numbers(number));
+}
+/**
+ * strlen_numbers - gets the length of a number
+ * @number: Number to knows the length
+ * Return: Length of numbers
+ */
+int strlen_numbers(unsigned int number)
+{
+	if ((number > 0) && (number / 10 != 0))
+		return (1 + strlen_numbers(number / 10));
+	return (1);
 }
