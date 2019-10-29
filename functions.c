@@ -51,30 +51,28 @@ int save_char(va_list args, char *dest, int *pos)
 	return (1);
 }
 /**
- * save_reverse - save a reverse string into the buffer
+ * save_upstring - save a upper string into the buffer
  * @args: list of arguments
  * @dest: the buffer
  * @pos: position will when come the buffer
  * Return: Actual length
  */
-int save_reverse(va_list args, char *dest, int *pos)
+int save_upstring(va_list args, char *dest, int *pos)
 {
-	int i = 0, j = 0;
+	int i = 0;
 	char *str = va_arg(args, char*);
 
 	if (str == NULL)
 		str = ")llun(";
 	while (str[i] != '\0')
 	{
+		if (str[i] >= 97 && str[i] <= 122)
+			copyto_buffer(dest, (str[i] - 32), pos);
+		else
+			copyto_buffer(dest, str[i], pos);
 		i++;
 	}
-	rev_string(str);
-	while (str[j] != '\0')
-	{
-		copyto_buffer(dest, str[j], pos);
-		j++;
-	}
-	return (j);
+	return (i);
 }
 /**
  * save_percent - save a percent into buffer
