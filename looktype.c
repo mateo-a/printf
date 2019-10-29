@@ -13,6 +13,7 @@ int (*looktype(char s))(va_list args, char *dest, int *pos)
 		{'r', save_reverse},
 		{'d', save_number},
 		{'i', save_number},
+		{'b', save_binary},
 		{'%', save_percent},
 		{'\0', NULL}
 	};

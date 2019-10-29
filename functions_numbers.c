@@ -37,3 +37,78 @@ int save_number(va_list args, char *dest, int *pos)
 
 	return (len);
 }
+/**
+ * _base - length for an octal number
+ * @num: number
+ * @base: Base
+ * Return: Integer
+ */
+unsigned int _base(unsigned int num, int base)
+{
+	unsigned int i;
+
+	for (i = 0; num > 0; i++)
+	{
+		num = num / base;
+	}
+	return (i);
+}
+/**
+ * rev_string - prints a string in reverse
+ * @s: This is the string to evalu
+ * not return
+ */
+void rev_string(char *s)
+{
+	int i = 0;
+	char word;
+	int si = 0;
+
+	while (s[i] != '\0')
+		i++;
+	i -= 1;
+	while (i > si)
+	{
+		word = s[i];
+		s[i] = s[si];
+		s[si] = word;
+		si++;
+		i--;
+	}
+}
+/**
+ * save_binary - number from base 10 to binary
+ * @args: arguments
+ * @dest: destiny to copy
+ * @pos: actual position in destiny
+ * Return: number
+ */
+int save_binary(va_list args, char *dest, int *pos)
+{
+	unsigned int num;
+	int i, len;
+	char *str;
+
+	num = va_arg(args, unsigned int);
+	if (num < 1)
+		return (-1);
+	len = _base(num, 2);
+	str = malloc(len + 1);
+	for (i = 0; num > 0; i++)
+	{
+		if (num % 2 == 0)
+			str[i] = '0';
+		else
+			str[i] = '1';
+		num = num / 2;
+	}
+	str[i] = '\0';
+	i = 0;
+	rev_string(str);
+	while (str[i] != '\0')
+	{
+		copyto_buffer(dest, str[i], pos);
+		i++;
+	}
+	return (i);
+}
