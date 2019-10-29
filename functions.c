@@ -59,26 +59,16 @@ int save_char(va_list args, char *dest, int *pos)
  */
 int save_reverse(va_list args, char *dest, int *pos)
 {
-	int i = 0, si = 0, j = 0;
+	int i = 0, j = 0;
 	char *str = va_arg(args, char*);
-	char letter;
 
 	if (str == NULL)
-		str = "(nil)";
-
+		str = "(null)";
 	while (str[i] != '\0')
 	{
 		i++;
 	}
-	i -= 1;
-	while (si < i)
-	{
-		letter = str[i];
-		str[i] = str[si];
-		str[si]  = letter;
-		si++;
-		i--;
-	}
+	rev_string(str);
 	while (str[j] != '\0')
 	{
 		copyto_buffer(dest, str[j], pos);
