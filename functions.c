@@ -63,7 +63,7 @@ int save_upstring(va_list args, char *dest, int *pos)
 	char *str = va_arg(args, char*);
 
 	if (str == NULL)
-		str = "(null)";
+		str = ")llun(";
 	while (str[i] != '\0')
 	{
 		if (str[i] >= 97 && str[i] <= 122)
