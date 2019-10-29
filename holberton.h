@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stddef.h>
 #include <unistd.h>
+#include <limits.h>
 /**
  * struct vaargs - struct to canalize buffer
  * @typef: Type of format
@@ -23,6 +24,6 @@ int save_char(va_list args, char *dest, int *pos);
 int save_reverse(va_list args, char *dest, int *pos);
 int save_decimal(va_list args, char *dest, int *pos);
 int save_percent(va_list args, char *dest, int *pos);
-int strlen_numbers(unsigned int number);
-void convert_numbers(char *dest, unsigned int number, int *pos);
+int strlen_numbers(int number);
+void convert_numbers(char *dest, int number, int *pos);
 #endif
