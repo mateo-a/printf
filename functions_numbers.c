@@ -78,7 +78,9 @@ void rev_string(char *s)
 }
 /**
  * save_binary - number from base 10 to binary
- * @list: arguments
+ * @args: arguments
+ * @dest: destiny to copy
+ * @pos: actual position in destiny
  * Return: number
  */
 int save_binary(va_list args, char *dest, int *pos)
