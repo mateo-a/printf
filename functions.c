@@ -34,11 +34,7 @@ int save_string(va_list args, char *dest, int *pos)
 		copyto_buffer(dest, str[i], pos);
 		i++;
 	}
-<<<<<<< HEAD
-	return (0);
-=======
 	return (i);
->>>>>>> master
 }
 /**
  * save_char - save a char into the buffer
@@ -52,11 +48,7 @@ int save_char(va_list args, char *dest, int *pos)
 	char c = va_arg(args, int);
 
 	copyto_buffer(dest, c, pos);
-<<<<<<< HEAD
-	return (0);
-=======
 	return (1);
->>>>>>> master
 }
 /**
  * save_reverse - save a reverse string into the buffer

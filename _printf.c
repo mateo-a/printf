@@ -17,11 +17,7 @@ int _printf(const char *format, ...)
 	if (dest == NULL)
 		return (-1);
 	va_start(args, format);
-<<<<<<< HEAD
-	if (format[i] != '\0')
-=======
 	if (format != NULL)
->>>>>>> master
 	{
 		length = 0;
 		while (format[i] != '\0')
@@ -35,26 +31,11 @@ int _printf(const char *format, ...)
 				(b).f = looktype(format[i + 1]);
 				if ((b).f != NULL)
 				{
-<<<<<<< HEAD
-					(b).f(args, dest, pos);
-=======
 					length = (length + (b).f(args, dest, pos)) - 1;
->>>>>>> master
 					i++;
 				}
 				else
 					copyto_buffer(dest, format[i], pos);
-<<<<<<< HEAD
-			}
-			i++;
-		} length = *pos;
-		if (*pos != 1024)
-		{
-			write(1, dest, *pos);
-			free(dest);
-		}
-	}
-=======
 			} i++;
 			length++;
 		}
@@ -62,7 +43,6 @@ int _printf(const char *format, ...)
 	if (*pos != 1024)
 		write(1, dest, *pos);
 	free(dest);
->>>>>>> master
 	va_end(args);
 	return (length);
 }
