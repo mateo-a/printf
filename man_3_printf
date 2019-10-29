@@ -1,0 +1,58 @@
+.TH _PRINTF 3 "29 October 2019" "1.0" "Holberton Programer's Manual"
+.SH NAME
+.B _printf
+- A simple re-creation of the C printf function
+.SH SYNOPSIS
+#include "holberton.h"
+.sp
+int _printf(const char *
+.B format
+", ...);
+.ad
+.SH DESCRIPTION
+This function produce output according to a
+.B format
+as described below and write the output under the control of a 
+.B format
+string that specifies how subsequent arguments (or arguments accessed via the variable-lenght argument facilities of 
+.I stdarg(3)).
+.sp
+The conversion specifier
+.ad
+.RS
+A character that specifies the type of conversion to be applied according to their meanings:
+
+
+.B %c:
+The
+.I int
+argument is converted to an
+.I unsigned char,
+and the resulting character is written.
+.RS 0
+
+.B %s:
+Character are written up to (but not including) a termination null byte ('\0'); must contain a termination null byte.
+.RS 0
+
+.B %
+A '%' is written. No argument is converted. The complete conversion specification is '%%'.
+.RS 0
+
+.B %d, %i:
+The
+.I int
+argument is converted to signed decimal notation. Prints integers of max and min size of an int type.
+.RS 0
+
+.B %b:
+To print a number in binary form.
+.SH RETURN VALUES
+The _printf( ) function returns an integer representing the number of symbols
+printed not counting \\0 for the string.
+.SH SEE ALSO
+.I write(2), printf(3)
+.SH BUGS
+No known bugs.
+.SH AUTHORS
+Miguel Parada - Alexander Urrego
