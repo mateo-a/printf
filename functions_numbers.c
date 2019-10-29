@@ -33,7 +33,7 @@ int save_decimal(va_list args, char *dest, int *pos)
 		number = number * -1;
 	}
 	convert_numbers(dest, number, pos);
-	return (strlen_numbers(number) + 1);
+	return (strlen_numbers(number));
 }
 /**
  * strlen_numbers - gets the length of a number
