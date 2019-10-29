@@ -1,48 +1,103 @@
 #include "holberton.h"
 /**
- * convert_numbers - convert a number into char and copy into buffer
- * @dest: buffer destiny
- * @number: number to convert a char
- * @pos: Last position of buffer
+ * save_number - save a number
+ * @args: List of arguments
+ * @dest: Destiny to copy
+ * @pos: Position of destiny
+ * Return: The length
  */
-void convert_numbers(char *dest, int number, int *pos)
+int save_number(va_list args, char *dest, int *pos)
 {
-	char cnumber;
+	int n, div, len;
+	unsigned int num;
 
-	if (number / 10 != 0)
-	{
-		convert_numbers(dest, number / 10, pos);
-	}
-	cnumber = (number % 10) + '0';
-	copyto_buffer(dest, cnumber, pos);
-}
+	n  = va_arg(args, int);
+	div = 1;
+	len = 0;
 
-/**
- * save_decimal - validate a number
- * @args: list of arguments to validate
- * @dest: buffer destiny
- * @pos: Last position of buffer
- * Return: Actual length
- */
-int save_decimal(va_list args, char *dest, int *pos)
-{
-	int number = va_arg(args, int);
-	if (number < 0)
+	if (n < 0)
 	{
+		len++;
 		copyto_buffer(dest, '-', pos);
-		number = number * -1;
+		num = n * -1;
 	}
-	convert_numbers(dest, number, pos);
-	return (strlen_numbers(number));
+	else
+		num = n;
+
+	for (; num / div > 9; )
+		div *= 10;
+
+	for (; div != 0; )
+/**
+ * _base - length for an octal number
+ * @num: number
+ * @base: Base
+ * Return: Integer
+ */
+unsigned int _base(unsigned int num, int base)
+{
+	unsigned int i;
+
+	for (i = 0; num > 0; i++)
+	{
+		num = num / base;
+	}
+	return (i);
 }
 /**
- * strlen_numbers - gets the length of a number
- * @number: Number to knows the length
- * Return: Length of numbers
+ * rev_string - prints a string in reverse
+ * @s: This is the string to evalu
+ * not return
  */
-int strlen_numbers(int number)
+void rev_string(char *s)
 {
-	if (number > 0)
-		return (strlen_numbers(number / 10) + 1);
-	return (0);
+	int i = 0;
+	char word;
+	int si = 0;
+
+	while (s[i] != '\0')
+		i++;
+	i -= 1;
+	while (i > si)
+	{
+		word = s[i];
+		s[i] = s[si];
+		s[si] = word;
+		si++;
+		i--;
+	}
+}
+/**
+ * save_binary - number from base 10 to binary
+ * @list: arguments
+ * Return: number
+ */
+int save_binary(va_list args, char *dest, int *pos)
+{
+	unsigned int num;
+	int i, len;
+	char *str;
+
+	num = va_arg(args, unsigned int);
+	if (num < 1)
+		return (-1);
+	len = _base(num, 2);
+	str = malloc(len + 1);
+	for (i = 0; num > 0; i++)
+	{
+		if (num % 2 == 0)
+			str[i] = '0';
+		else
+			str[i] = '1';
+		num = num / 2;
+	}
+	str[i] = '\0';
+	i = 0;
+	rev_string(str);
+	while (str[i] != '\0')
+	{
+		copyto_buffer(dest, str[i], pos);
+		i++;
+	}
+	return (i);
 }

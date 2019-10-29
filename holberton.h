@@ -22,8 +22,9 @@ int (*looktype(char s))(va_list args, char *dest, int *pos);
 int save_string(va_list args, char *dest, int *pos);
 int save_char(va_list args, char *dest, int *pos);
 int save_reverse(va_list args, char *dest, int *pos);
-int save_decimal(va_list args, char *dest, int *pos);
+int save_number(va_list args, char *dest, int *pos);
 int save_percent(va_list args, char *dest, int *pos);
-int strlen_numbers(int number);
+int save_binary(va_list args, char *dest, int *pos);
+unsigned int _base(unsigned int num, int base);
 void convert_numbers(char *dest, int number, int *pos);
 #endif

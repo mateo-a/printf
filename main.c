@@ -9,9 +9,9 @@ int main(void)
 {
 	int len = 0;
 	int len2 = 0;
-	len = printf("%d", -1024);
-	len2 =_printf("%d", -1024);
-	printf("lengthN:%d\n", len);
-	_printf("lengthO:%d\n", len2);
-	return (0);
+	len = printf("Soy un binario:%b\n", 98);
+	len2 =_printf("Soy un binario:%b\n", 98);
+	printf("BinaryP%d\n", len);
+	_printf("BinaryO:%d\n", len2);
+  return (0);
 }
