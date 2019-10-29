@@ -9,6 +9,7 @@ int main(void)
 {
 	int len = 0;
 	int len2 = 0;
+
 	len = printf("Soy un binario:%b\n", 98);
 	len2 =_printf("Soy un binario:%b\n", 98);
 	printf("BinaryP%d\n", len);
