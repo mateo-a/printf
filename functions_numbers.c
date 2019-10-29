@@ -28,15 +28,6 @@ int save_number(va_list args, char *dest, int *pos)
 		div *= 10;
 
 	for (; div != 0; )
-	{
-		len++;
-		copyto_buffer(dest, ('0' + num / div), pos);
-		num %= div;
-		div /= 10;
-	}
-
-	return (len);
-}
 /**
  * _base - length for an octal number
  * @num: number
