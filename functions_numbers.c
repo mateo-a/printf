@@ -46,6 +46,6 @@ int save_decimal(va_list args, char *dest, int *pos)
 int strlen_numbers(unsigned int number)
 {
 	if ((number > 0) && (number / 10 != 0))
-		return (1 + strlen_numbers(number/10));
+		return (1 + strlen_numbers(number / 10));
 	return (1);
 }
