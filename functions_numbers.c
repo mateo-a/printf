@@ -90,10 +90,15 @@ int save_binary(va_list args, char *dest, int *pos)
 	char *str;
 
 	num = va_arg(args, unsigned int);
-	if (num < 1)
-		return (-1);
+	if (num == 0)
+	{
+		copyto_buffer(dest, '0', pos);
+		return (1);
+	}
 	len = _base(num, 2);
 	str = malloc(len + 1);
+	if (str == NULL)
+		str = "(null)";
 	for (i = 0; num > 0; i++)
 	{
 		if (num % 2 == 0)
