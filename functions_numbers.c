@@ -117,3 +117,33 @@ int save_binary(va_list args, char *dest, int *pos)
 	}
 	return (i);
 }
+/**
+ * save_unsigned - save an unsigned number
+ * @args: list or arguments
+ * @dest: Destiny to copy
+ * @pos: Actual position of number
+ * Return: Actual position of destiny
+ */
+int save_unsigned(va_list args, char *dest, int *pos)
+{
+	unsigned int len = 0;
+	int div = 1;
+	unsigned int number = va_arg(args, unsigned int);
+
+	if (number == 0)
+	{
+		copyto_buffer(dest, '0', pos);
+		return (1);
+	}
+	for (; number / div > 9; )
+		div *= 10;
+
+	for (; div != 0; )
+	{
+		len++;
+		copyto_buffer(dest, ('0' + number / div), pos);
+		number %= div;
+		div /= 10;
+	}
+	return (len);
+}

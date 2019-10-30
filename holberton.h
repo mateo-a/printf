@@ -26,6 +26,9 @@ void rev_string(char *s);
 int save_number(va_list args, char *dest, int *pos);
 int save_percent(va_list args, char *dest, int *pos);
 int save_binary(va_list args, char *dest, int *pos);
+int save_unsigned(va_list args, char *dest, int *pos);
+int save_octal(va_list args, char *dest, int *pos);
+int save_lwhexa(va_list args, char *dest, int *pos);
+int save_uphexa(va_list args, char *dest, int *pos);
 unsigned int _base(unsigned int num, int base);
-void convert_numbers(char *dest, int number, int *pos);
 #endif
