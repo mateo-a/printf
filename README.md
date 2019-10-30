@@ -1,5 +1,5 @@
 
-# _printf functions
+# _printf function
 
 ## Description
 Create a function that works like C's printf function for the required cases.
