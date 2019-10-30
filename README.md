@@ -36,6 +36,29 @@ Create a function that works like C's printf function for the required cases.
 
 ---
 
+## EXAMPLE
+
+- To print "Hello Holberton" use:
+
+                  #include "holberton.h"
+
+                  _printf("%s", "Hello Holberton");
+
+
+- To print a line as "My age is, 23" use:
+
+                  #include "holberton.h"
+
+                  _printf("%s, %d", "My age is", 23);
+---
+
+### RETURN VALUE
+
+Upon successful return, this function return the number of characters printed (excluding the null byte used to end output to strings).
+
+---
+
+
 ### Man file:
 
 -   man_3_printf (Open it in linux using man command (e.g. man ./man_3_printf)

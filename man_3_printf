@@ -66,9 +66,25 @@ Prints the reversed string
 .B %R
 Prints the rot13'ed string
 
-.SH RETURN VALUES
-The _printf( ) function returns an integer representing the number of symbols
-printed not counting \\0 for the string.
+.SH EXAMPLE
+       To print "Hello Holberton" use:
+
+           #include "holberton.h"
+
+           _printf("%s", "Hello Holberton");
+
+
+
+       To print a line as "My age is, 23" use:
+
+           #include "holberton.h"
+
+           _printf("%s, %d", "My age is", 23);
+
+
+.SH RETURN VALUE
+Upon successful return, this function return the number of characters printed (excluding the null byte used to end output to strings).
+
 .SH SEE ALSO
 .I write(2), printf(3)
 .SH BUGS
