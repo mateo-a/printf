@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
  * save_rot13 - save an encrypted rot13 string into buffer
  * @args: list of args
