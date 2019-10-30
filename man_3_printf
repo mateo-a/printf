@@ -12,9 +12,9 @@ int _printf(const char *
 .SH DESCRIPTION
 This function produce output according to a
 .B format
-as described below and write the output under the control of a 
+as described below and write the output under the control of a
 .B format
-string that specifies how subsequent arguments (or arguments accessed via the variable-lenght argument facilities of 
+string that specifies how subsequent arguments (or arguments accessed via the variable-lenght argument facilities of
 .I stdarg(3)).
 .sp
 The conversion specifier
