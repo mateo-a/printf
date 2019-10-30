@@ -10,13 +10,14 @@ int (*looktype(char s))(va_list args, char *dest, int *pos)
 	vargs calls[] = {
 		{'s', save_string},
 		{'c', save_char},
-		{'S', save_upstring},
 		{'d', save_number},
 		{'i', save_number},
 		{'u', save_unsigned},
 		{'o', save_octal},
 		{'x', save_lwhexa},
 		{'X', save_uphexa},
+		{'R', save_rot13},
+		{'r', save_reverse},
 		{'b', save_binary},
 		{'%', save_percent},
 		{'\0', NULL}

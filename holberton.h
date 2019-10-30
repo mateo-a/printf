@@ -30,5 +30,7 @@ int save_unsigned(va_list args, char *dest, int *pos);
 int save_octal(va_list args, char *dest, int *pos);
 int save_lwhexa(va_list args, char *dest, int *pos);
 int save_uphexa(va_list args, char *dest, int *pos);
+int save_rot13(va_list args, char *dest, int *pos);
+int save_reverse(va_list args, char *dest, int *pos);
 unsigned int _base(unsigned int num, int base);
 #endif
