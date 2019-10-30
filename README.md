@@ -58,6 +58,7 @@ Upon successful return, this function return the number of characters printed (e
 
 ---
 
+
 ### Man file:
 
 -   man_3_printf (Open it in linux using man command (e.g. man ./man_3_printf)
