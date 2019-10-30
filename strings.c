@@ -12,7 +12,7 @@ int save_rot13(va_list args, char *dest, int *pos)
 	int i;
 	int x;
 	int length = 0;
-	char str = va_arg(args, char);
+	char *str = va_arg(args, char *);
 	char s[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 	char u[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
@@ -49,7 +49,7 @@ int save_reverse(va_list args, char *dest, int *pos)
 	int i = 0, j;
 	char *str, *tmp, sw1, sw2;
 
-	str = va_arg(a, char *);
+	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
 
@@ -67,7 +67,7 @@ int save_reverse(va_list args, char *dest, int *pos)
 		sw2 = str[(i - 1) - j];
 		tmp[j] = sw2;
 		tmp[(i - 1) - j] = sw1;
-		buffer(dest, p[j], pos);
+		copyto_buffer(dest, tmp[j], pos);
 	}
 
 	free(tmp);
