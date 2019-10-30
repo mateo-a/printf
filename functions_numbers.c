@@ -130,6 +130,11 @@ int save_unsigned(va_list args, char *dest, int *pos)
 	int div = 1;
 	unsigned int number = va_arg(args, unsigned int);
 
+	if (number == 0)
+	{
+		copyto_buffer(dest, '0', pos);
+		return (1);
+	}
 	for (; number / div > 9; )
 		div *= 10;
 

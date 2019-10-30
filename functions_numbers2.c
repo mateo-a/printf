@@ -38,7 +38,7 @@ int save_octal(va_list args, char *dest, int *pos)
 		copyto_buffer(dest, octal[i], pos);
 		i++;
 	}
-	return (len);
+	return (i);
 }
 /**
  * save_lwhexa - save a number converted to octal into buffer to print
@@ -54,6 +54,11 @@ int save_lwhexa(va_list args, char *dest, int *pos)
 	char *lwhexa;
 	unsigned int number = va_arg(args, unsigned int);
 
+	if (number == 0)
+	{
+		copyto_buffer(dest, '0', pos);
+		return (1);
+	}
 	len = _base(number, 16);
 
 	lwhexa = malloc(sizeof(char) * len + 1);
@@ -69,7 +74,7 @@ int save_lwhexa(va_list args, char *dest, int *pos)
 		copyto_buffer(dest, lwhexa[i], pos);
 		i++;
 	}
-	return (len);
+	return (i);
 }
 /**
  * save_uphexa - save a number converted to octal into buffer to print
@@ -85,6 +90,12 @@ int save_uphexa(va_list args, char *dest, int *pos)
 	char *lwhexa;
 	unsigned int number = va_arg(args, unsigned int);
 
+
+	if (number == 0)
+	{
+		copyto_buffer(dest, '0', pos);
+		return (1);
+	}
 	len = _base(number, 16);
 
 	lwhexa = malloc(sizeof(char) * len + 1);
@@ -100,5 +111,5 @@ int save_uphexa(va_list args, char *dest, int *pos)
 		copyto_buffer(dest, lwhexa[i], pos);
 		i++;
 	}
-	return (len);
+	return (i);
 }
