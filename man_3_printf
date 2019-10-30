@@ -44,9 +44,28 @@ The
 .I int
 argument is converted to signed decimal notation. Prints integers of max and min size of an int type.
 .RS 0
+.B %b
+Prints the binary conversion of a integer
+.RS 0
 
-.B %b:
-To print a number in binary form.
+.B %u
+Prints unsigned decimal (integer) number
+.RS 0
+.B %o
+Prints octal number (base 8)
+.RS 0
+.B %x
+Prints number in hexadecimal (base 16) lowercase
+.RS 0
+.B %X
+Prints number in hexadecimal (base 16) uppercase
+.RS 0
+.B %r
+Prints the reversed string
+.RS 0
+.B %R
+Prints the rot13'ed string
+
 .SH RETURN VALUES
 The _printf( ) function returns an integer representing the number of symbols
 printed not counting \\0 for the string.
