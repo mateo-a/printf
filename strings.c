@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * save_rot13 - save an encrypted rot13 string into buffer
  * @args: list of args
@@ -36,6 +37,7 @@ int save_rot13(va_list args, char *dest, int *pos)
 	}
 	return (length);
 }
+
 /**
  * save_reverse - save an encrypted rot13 string into buffer
  * @args: list of args
