@@ -1,5 +1,12 @@
-
 # _printf function
+
+<p >
+  <img src="https://memegenerator.net/img/instances/400x/28327803/printf-printf-everywhere.jpg" width="200" height="200">
+  <img src="https://cdn.iconscout.com/icon/free/png-512/c-programming-569564.png" width="100" height="100">
+  
+</p>
+
+
 
 ## Description
 This is a simple implementation of a function that works like C's printf function for the required cases.
