@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * save_number - save a number
  * @args: List of arguments
@@ -37,6 +38,7 @@ int save_number(va_list args, char *dest, int *pos)
 
 	return (len);
 }
+
 /**
  * _base - length for an octal number
  * @num: number
@@ -53,6 +55,7 @@ unsigned int _base(unsigned int num, int base)
 	}
 	return (i);
 }
+
 /**
  * rev_string - prints a string in reverse
  * @s: This is the string to evalu
@@ -76,6 +79,7 @@ void rev_string(char *s)
 		i--;
 	}
 }
+
 /**
  * save_binary - number from base 10 to binary
  * @args: arguments
@@ -117,6 +121,7 @@ int save_binary(va_list args, char *dest, int *pos)
 	}
 	return (i);
 }
+
 /**
  * save_unsigned - save an unsigned number
  * @args: list or arguments
